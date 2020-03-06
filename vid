@@ -1,0 +1,8 @@
+Код для вставки в секцию head:
+
+<script src="https://lidrekon.ru/slep/js/jquery.js"></script>
+<script src="https://lidrekon.ru/slep/js/uhpv-full.min.js"></script>
+
+Код кнопки разместить в любом месте html-страницы:
+
+<a id="specialButton" href="#"><img src="https://lidrekon.ru/images/special.png" alt="ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ" title="ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ" /></a>

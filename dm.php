@@ -1,6 +1,24 @@
 <?php
  require "config.php";
- echo "Папка пользователя:".$_SERVER['SERVER_NAME']."<br>";
+ // кукисы и авторизация
+$_COOKIE['username']?$user= $_COOKIE['username']:$user='Dummy';
+$_COOKIE['userpass']?$pass= $_COOKIE['userpass']:$pass='Empty';
+$dbn = new PDO("sqlite:".$ubasename,'','');
+$sth = $dbn->prepare("select * from usr where name='".$user."'");
+$sth->execute();
+$r = $sth->fetch(PDO::FETCH_ASSOC);
+$cookieOK=FALSE;
+if($r['name']==$user&&$r['pass']==$pass){
+$cookieOK=TRUE;
+}
+else{
+$cookieOK=FALSE;
+}
+$dbn=null;
+ // работаем
+ if ($cookieOK){
+
+ //echo "Папка пользователя:".$_SERVER['SERVER_NAME']."<br>";
  echo'<html><meta charset="utf-8"><head></head><body>'; 
  echo"<table border=1><tr>";
  echo"<td>";
@@ -77,25 +95,27 @@
   echo"Создать новость";
  echo"</td>";
  echo"<td>";
-  echo"<form method=post action='dm/edits.php?a=cnews'>
-  <input type=hidden value='".$tpl."' name=tpl>
-  <input type=hidden value='add' name=act>
-  <input type=hidden value='".$nbasename."' name=nbasename>
+  echo"<form method=post action='dm/edits.php?act=0'>
+  <input type=hidden value='".$tpl."' name='tpl'>
+  <input type=hidden value='add' name='act'>
+  <input type=hidden value='".$nbasename."' name='nbasename'>
   <input type=submit value='Добавить'>
  </form>";
  echo"</td>";
  echo "</tr><tr>";
  echo"<td>";
-  echo"<a href='dm/edits.php?a=struct'>Редактировать новость</a>";
+  echo"<a href='dm/startedits.php'>Редактировать или удалить новость</a>";
  echo"</td>";
  echo"<td>";
-  echo"<form method=post action='dm/edits.php?a=cnews'>
-  <input type=hidden value='".$tpl."' name=tpl>
-  <input type=hidden value='edit' name=act>
-  <input type=submit value='Добавить'>
- </form>";
+  
  echo"</td>";
  echo "</tr><tr>";
  echo"</tr></table>";
- echo"</body></html>"; 
+ echo"</body></html>";
+ }
+ else{
+    //echo"Not auth!";
+    $authtext=file_get_contents('dm/auth.htm');
+    echo $authtext;
+ } 
 ?>

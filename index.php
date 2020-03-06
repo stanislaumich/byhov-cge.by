@@ -23,13 +23,15 @@ if (isset($nak)) {
         } 
         }
 else{
-        include 'news.php';      
+        include 'news.php';
 }
 ///////////////////////////////
 ///////////////////////////////
 $main=str_replace('%main%',$nak,$main);
 $right=file_get_contents($tpl."/right.tpl");
+$left=file_get_contents($tpl."/left.tpl");
 $main=str_replace('%right%',$right,$main);
+$main=str_replace('%left%',$left,$main);
 $main=str_replace('%tpl%',$tpl,$main);
 $main=str_replace('%images%',$images,$main);
 $main=str_replace('%mdocs%',$mdocs,$main);
