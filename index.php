@@ -54,7 +54,7 @@ $f=file_get_contents($coords);
 $strs = explode(PHP_EOL,$f);
 foreach($strs as $st0){
         $st=explode('#',$st0);
-        ..print_r ($st);
+        //print_r ($st);
         $main=str_replace($st[0],$st[1],$main);
 }
 
