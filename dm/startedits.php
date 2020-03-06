@@ -31,12 +31,18 @@ if (!$act){
   $sth = $dbn->prepare("select * from  `TEXT` order by id desc limit ".$news_on_page);
   // (id,fname,nname,dt,dop) values(null,'".$fn."','".$lnames."','','')
   $sth->execute();
+  echo"<h3>Управление новостями</h3><br>";
+  echo"<a href='../index.php'>Посмотреть результат на главной</a><br>";
+  echo"<a href='../dm.php'>Перейти в начало панели управления</a><br><br>";
+  echo"<table border=1>";
 while ($r = $sth->fetch(PDO::FETCH_ASSOC)){
-    echo($r['nname']." -- <a href='startedits.php?act=1&id=".$r['id']."'>Удалить эту новость</a>&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href='edits.php?act=3&id=".$r['id']."'>Редактировать эту новость</a><br>");
-    //echo($r['fname']." -- <br>");
-    
-    //echo($rr['dop']." -- <br>");
+	echo"<tr>";
+    echo("<td><b><font color='".($r['activ']?"green'>":"red'>").$r['nname']."</font></b></td>");
+	echo("<td><a href='edits.php?act=3&id=".$r['id']."'>Редактировать эту новость</a></td>");
+	echo("<td><a href='startedits.php?act=1&id=".$r['id']."' style='color:red;'>Удалить эту новость</a></td>");
+	echo("<td><a href='startedits.php?act=8&id=".$r['id']."&op=1' style='color:green;'>Включить эту новость</a></td>");
+	echo("<td><a href='startedits.php?act=8&id=".$r['id']."&op=0' style='color:red;'>Выключить эту новость</a></td>");
+    echo"</tr>";
    }
 }
 if ($act==1){
@@ -44,6 +50,14 @@ if ($act==1){
  $sth->execute();
  $r = $sth->fetch(PDO::FETCH_ASSOC);
  echo($r['nname']." -- <a href='startedits.php?act=2&id=".$_GET['id']."'>Действительно удалить эту новость???</a> <br>");
+}
+
+if ($act==8){
+ $sth = $dbn->prepare("update `TEXT` set activ=".$_GET['op']." where id=".$_GET['id']);
+ $sth->execute();
+ echo($r['nname']." Новость ".($_GET['op']?"Включена":"Выключена")." <br>");
+ echo"<a href='../index.php'>Посмотреть результат на главной</a><br>";
+ echo"<a href='../dm.php'>Перейти в начало панели управления</a><br><br>";
 }
 
 if ($act==2){

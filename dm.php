@@ -18,7 +18,7 @@ $dbn=null;
  // работаем
  if ($cookieOK){
 
- //echo "Папка пользователя:".$_SERVER['SERVER_NAME']."<br>";
+ echo"<a href='../index.php' target=blank>Открыть сайт в новой вкладке</a><br><br>";
  echo'<html><meta charset="utf-8"><head></head><body>'; 
  echo"<table border=1><tr>";
  echo"<td>";
@@ -80,17 +80,8 @@ $dbn=null;
   <input type=submit value='Редактировать'>
  </form>";
  echo"</td>";
- echo "</tr><tr>";
- echo"<td>";
-  echo"<a href='dm/edits.php?a=struct'>Редактирование ещё чего то</a>";
- echo"</td>";
- echo"<td>";
-  echo"<form method=post action='dm/edits.php?a=else'>
-  <input type=hidden value='".$tpl."' name=tpl>
-  <input type=submit value='Редактировать'>
- </form>";
- echo"</td>";
- echo "</tr><tr>";
+ echo "</tr>";
+ echo "<tr>";
  echo"<td>";
   echo"Создать новость";
  echo"</td>";
@@ -104,13 +95,120 @@ $dbn=null;
  echo"</td>";
  echo "</tr><tr>";
  echo"<td>";
-  echo"<a href='dm/startedits.php'>Редактировать или удалить новость</a>";
+  echo"Редактировать или удалить новость";
  echo"</td>";
  echo"<td>";
-  
+  echo"<form method=post action='dm/startedits.php'>
+       <input type=submit value='Открыть список'></form>";
  echo"</td>";
  echo "</tr><tr>";
- echo"</tr></table>";
+  echo"<td>";
+  echo"Редактировать горячую линию";
+ echo"</td>";
+ echo"<td>";
+  echo"<form method=post action='dm/edits.php?a=grafik'>
+       <input type=submit value='Редактировать'></form>";
+ echo"</td>";
+ echo"</tr>";
+ 
+ echo"<tr>";
+ echo"<td>";
+  echo"Редактировать плашку объявления";
+ echo"</td>";
+ echo"<td>";
+  echo"<form method=post action='dm/edits.php?a=plashka'>
+       <input type=submit value='Редактировать'></form>";
+ echo"</td>";
+ echo"</tr>";
+ 
+  echo"<tr>";
+ echo"<td>";
+  echo"Редактировать подвал";
+ echo"</td>";
+ echo"<td>";
+  echo"<form method=post action='dm/edits.php?a=podval'>
+       <input type=submit value='Редактировать'></form>";
+ echo"</td>";
+ echo"</tr>";
+ 
+ echo"</table>";
+ echo "<br><br>";
+ echo "<h3>Редактирование отделов и прочих разделов сайта</h3>";////////////////////////////////////////////////////////////////////////////////
+ echo"<table border=1><tr>";
+ echo"<td>";
+  echo'Редактирование меню "Главный врач"';
+ echo"</td>";
+ echo"<td>";
+  echo"<form method=post action='dm/edits.php?a=glvr'>
+  <input type=hidden value='".$tpl."' name=tpl>
+  <input type=submit value='Редактировать'>
+ </form>";
+ echo"</td>";
+ echo "</tr><tr>";
+ echo"<td>";
+  echo'Редактирование меню "Секретарь"';
+ echo"</td>";
+ echo"<td>";
+  echo"<form method=post action='dm/edits.php?a=sekret'>
+  <input type=hidden value='".$tpl."' name=tpl>
+  <input type=submit value='Редактировать'>
+ </form>";
+ echo"</td>";
+ echo "</tr><tr>";
+ echo"<td>";
+  echo'Редактирование меню "Бухгалтер"';
+ echo"</td>";
+ echo"<td>";
+ echo"<form method=post action='dm/edits.php?a=buh'>
+ <input type=hidden value='".$tpl."' name=tpl>
+ <input type=submit value='Редактировать'>
+</form>";
+ echo"</td>";
+  echo "</tr><tr>";
+ echo"<td>";
+  echo'Редактирование меню "Отдел Гигиены"';
+ echo"</td>";
+ echo"<td>";
+ echo"<form method=post action='dm/edits.php?a=gigi'>
+ <input type=hidden value='".$tpl."' name=tpl>
+ <input type=submit value='Редактировать'>
+</form>";
+ echo"</td>";
+ echo "</tr><tr>";
+ echo"<td>";
+  echo'Редактирование меню "Эпидотдел"';
+ echo"</td>";
+ echo"<td>";
+ echo"<form method=post action='dm/edits.php?a=epid'>
+ <input type=hidden value='".$tpl."' name=tpl>
+ <input type=submit value='Редактировать'>
+</form>";
+ echo"</td>";
+ echo "</tr>";
+ echo "<tr>";
+ echo"<td>";
+  echo'Редактирование меню "Лаботдел"';
+ echo"</td>";
+ echo"<td>";
+  echo"<form method=post action='dm/edits.php?a=lab'>
+  <input type=hidden value='".$tpl."' name=tpl>
+  <input type=submit value='Редактировать'>
+ </form>";
+ echo"</td>";
+ echo "</tr>";
+ echo "<tr>";
+ echo"<td>";
+  echo'Редактирование Главной страницы';
+ echo"</td>";
+ echo"<td>";
+  echo"<form method=post action='dm/edits.php?a=index'>
+  <input type=hidden value='".$tpl."' name=tpl>
+  <input type=submit value='Редактировать'>
+ </form>";
+ echo"</td>";
+ echo "</tr>";
+
+ echo "<tr></tr></table>";
  echo"</body></html>";
  }
  else{

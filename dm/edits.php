@@ -25,21 +25,27 @@
 
  $id=$_GET['id'];
  $act=$_GET['act'];
+ $a=$_GET['a'];
  $dbn = new PDO("sqlite:../".$nbasename,'','');
  $sth = $dbn->prepare("select * from `TEXT` where id=".$_GET['id']);
  if ($sth){$sth->execute();}
  if ($sth){$r = $sth->fetch(PDO::FETCH_ASSOC);}
- ?>
 
- <form  enctype="multipart/form-data" method=post action='editsave.php'>   
-   <!-- вставка названия новости, описания и картинки -->
-   Краткое название новости (только для себя)<input name='sname' type =text value='<?php echo $r['nname'] ?>' size=100> <br>
-   Название новости для первой страницы<input name='lname' type =text value='<?php echo $r['nname'] ?>' size=100> <br>
-   Фото новости:<input type='file' name='userfile'><br><br>
-  <!--   -->
- <textarea id="editor" style="height: 30em; width: 100%;" name='TA'>
+ if($a){
+	 echo"<form enctype='multipart/form-data' method=post action='editsave.php'>";
+	 echo"<textarea id='editor' style='height: 40em; width: 100%;' name='TA'>";
+	 $fd=file_get_contents('../'.$tpl.'/'.$a.'.tpl');
+	 $act=500;
+	 echo $fd;
+ }
+ else{
+	 echo"<form enctype='multipart/form-data' method=post action='editsave.php'>";  
+   //echo"Краткое название новости (только для себя)<input name='sname' type =text value='".$r['nname']."' size=100> <br>";
+   echo"Название новости для первой страницы<input name='qname' type =text value='".$r['nname']."' size=100> <br>";
+   echo"Фото новости(если не указать останется старое):<input type='file' name='userfile'><br><br>  ";
+   echo"<textarea id='editor' style='height: 30em; width: 100%;' name='TA'>";
+
  
-<?php
  if  ($act=='3'){
      $tfn='../'.$tpl.'/news/'.$r['id'].'_'.$r['fname'];	 
      $tr=file_get_contents($tfn);
@@ -47,17 +53,16 @@
   else
      {$tr='';
       $act=1;
-	  }
+	  } 
  echo $tr;
- //echo $tfn;
- ////////////////////////////////////////////////////////////////////
+ }
  echo"\n\n</textarea>";
- 
  echo"<input type=hidden value='".$r['id']."' name='id'>";
+ echo"<input type=hidden value='".$a."' name='a'>";
+  echo"<input type=hidden value='".$fd."' name='fd'>";
  echo"<input type=hidden value='".$r['fname']."' name='fname'>";
- echo"<input type=hidden value='".$r['nname']."' name='nname'>";
+ //echo"<input type=hidden value='".$r['nname']."' name='ename'>";
  echo"<input type=hidden value='".$act."' name='act'>";
- //!!!!!!!!!echo"<input type=hidden value='".$nbasename."' name='nbasename'>";
 ?>
 <input type=submit value='Готово' action=submit>
 

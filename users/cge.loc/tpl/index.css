@@ -1,26 +1,27 @@
 body {
     margin: 0;
     padding: 0;
-
 }
 .image {
 	position	: relative;
-	width		: 100%; /* for IE 6 */
+	width		: 100%; 
 }
-
+p{
+	text-indent: 20px;	
+}
 h2 {
 	position	: absolute;
 	top		: 100px;
 	left		: -250;
 	width		: 100%;
 }
-
+h3.nwhite {
+color: #ffffff;
+}
 h2 span {
 	color			: #405641;
 	font			: bold 16px/45px Helvetica, Sans-Serif;
 	letter-spacing	: 1px;
-	/*background		: rgb(0, 0, 0); /* на случай, если следующая строка не сработает */
-	/*background		: rgba(0, 0, 0, 0.7);*/
 	padding			: 10px;
 }
 h2 span.spacer {
@@ -30,8 +31,6 @@ h2 span.spacer {
     display: flex;
     min-height: 100vh;
 }
-
-/* Фиксируем позицию body, которую меняет панель гугла*/
 
 .page_fix {
     top: 0 !important;
@@ -72,58 +71,12 @@ h2 span.spacer {
     text-align: center;
     margin: auto;
 }
-
 font.up{
 	color: green;
 	font-size:20px;
 	font-family:Verdana;
 }
-a.docs{
-	color: #ffffff;/*цвет текста*/
-	font-size: 14px;/*размер текста*/
-    font-weight: bold;/*жирный шрифт*/
-	line-height: 1.5;/*высота строки*/
-	text-decoration: none;/*убераем подчеркивание*/
-}
-a.wsbutton{
-    background: #405641;/*цвет фона*/
-    border-radius: 3px;/*радиус скругления*/
-    box-shadow: 0 -3px 0 0 hsla(0, 0%, 0%, 0.2) inset;/*внутрення тень*/
-    color: #ffffff;/*цвет текста*/
-    /*display: table;/*элемент таблицы*/
-    font-family: sans-serif;/*семейство шрифта*/
-    font-size: 14px;/*размер текста*/
-    font-weight: bold;/*жирный шрифт*/
-    line-height: 1.5;/*высота строки*/
-    padding: 5px 25px;/*внутрение отступы*/
-    /*margin:0 auto;/*выравнивание по центру*/
-    text-decoration: none;/*убераем подчеркивание*/
-    transition: all 0.3s;/*плавный эффект перехода*/
-}
-a.wsbuttons{
-    background: #013001;/*цвет фона*/
-    border-radius: 3px;/*радиус скругления*/
-    box-shadow: 0 -3px 0 0 hsla(0, 0%, 0%, 0.2) inset;/*внутрення тень*/
-    color: #ffffff;/*цвет текста*/
-    /*display: table;/*элемент таблицы*/
-    font-family: sans-serif;/*семейство шрифта*/
-    font-size: 14px;/*размер текста*/
-    font-weight: bold;/*жирный шрифт*/
-    line-height: 1.5;/*высота строки*/
-    padding: 5px 5px;/*внутрение отступы*/
-    /*margin:0 auto;/*выравнивание по центру*/
-    text-decoration: none;/*убераем подчеркивание*/
-    transition: all 0.3s;/*плавный эффект перехода*/
-}
-/*стили кнопки при наведении курсора мыши на нее*/
-a.wsbutton:hover {
-    background: rgb(5, 189, 118);/*другой цвет фона*/
-    box-shadow: 0 3px 0 0 hsla(0, 0%, 0%, 0.2) inset;/*расположение тени сверху*/
-}
-a.wsbuttons:hover {
-    background: rgb(113, 133, 3);/*другой цвет фона*/
-    box-shadow: 0 3px 0 0 hsla(0, 0%, 0%, 0.2) inset;/*расположение тени сверху*/
-}
+
 .mainmenu {
     width: 743px; /* Ширина элемента в пикселах */
     padding: 10px; /* Поля вокруг текста */
@@ -135,36 +88,11 @@ a.wsbuttons:hover {
     padding: 10px; /* Поля вокруг текста */
     margin: auto; /* Выравниваем по центру */
     /*background: #405641; /* Цвет фона */
-   }   
-div.main {
-    background: #8b9175; /* Цвет фона */
-    color: #000; /* Цвет текста */
-    padding: 10px; /* Поля вокруг текста */
-    border-radius: 5px; /* Уголки */
-	font-family:Verdana;
    }
-div.right {
-    background: #405641; /* Цвет фона */
-    color: rgb(184, 212, 179); /* Цвет текста */
-    padding: 10px; /* Поля вокруг текста */
-    border-radius: 5px; /* Уголки */
-    font-family:Courier;    
-   }
-div.left {
-    background: #405641; /* Цвет фона */
-    color: rgb(184, 212, 179); /* Цвет текста */
-    padding: 10px; /* Поля вокруг текста */
-    border-radius: 5px; /* Уголки */
-    font-family:Courier;    
-   }   
-div.logo {
-    /*background: #405641; /* Цвет фона */
-     /* Цвет текста */
-    padding: 1px; /* Поля вокруг текста */
-    /*border-radius: 5px; /* Уголки */
-    font-family:Gill Sans;
-    
-   }   
+
+
+
+   
 #first_element {
   position: relative;
   left: 30px; 
@@ -183,16 +111,7 @@ div.logo {
   font-size: 20px; 
   text-align: center; 
 }
-img.rad {
-    border-radius: 10px;
-border: 1px solid #000000;	
-   }
-   
-img.rad:hover{
-    border-radius: 10px;
-border: 1px solid #00FF00;	
-   }
-   
+
 /*carusel ---------------------------*/
 .myslider {
     width: 840px;
@@ -207,39 +126,16 @@ border: 1px solid #00FF00;
     left:0;
     margin-top: 20px; 
 }
-a.button17 {
-  display: inline-block;
-  font-family: arial,sans-serif;
-  font-size: 11px;
-  color: rgb(205,216,228);
-  text-shadow: 0 -1px rgb(46,53,58);
-  text-decoration: none;
-  user-select: none;
-  line-height: 2em;
-  padding: 1px 1.2em;
-  outline: none;
-  border: 1px solid rgba(33,43,52,1);
-  border-radius: 3px;
-  background: rgb(81,92,102) linear-gradient(rgb(81,92,102), rgb(69,78,87));
-  box-shadow:
-   inset 0 1px rgba(101,114,126,1),
-   inset 0 0 1px rgba(140,150,170,.8),
-   0 1px rgb(83,94,104),
-   0 0 1px rgb(86,96,106);
+
+.stroke {
+    font: bold 1em Arial, sans-serif;
+    color: #0d3967;
+    text-shadow: #cad5e2 1px 1px 0
+                 ;
+   }
+.photosotr{
+	width : 250px;
 }
-a.button17:active {
-  box-shadow:
-   inset 0 1px 3px rgba(0,10,20,.5),
-   0 1px rgb(83,94,104),
-   0 0 1px rgb(86,96,106);
-}
-a.button17:focus:not(:active) {
-  border: 1px solid rgb(22,32,43);
-  border-bottom: 1px solid rgb(25,34,45);
-  background: rgb(53,61,71);
-  box-shadow:
-   inset 0 1px 3px rgba(0,10,20,.5),
-   0 1px rgb(83,94,104),
-   0 0 1px rgb(86,96,106);
-  pointer-events: none;
-}
+.leftpic{
+	width : 180px;
+}  

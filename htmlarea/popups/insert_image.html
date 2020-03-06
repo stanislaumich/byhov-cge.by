@@ -128,7 +128,7 @@ form { padding: 0px; margin: 0px; }
 	Ссылка картинки:</td>
     <td><input type="text" name="url" id="f_url" class="ajax-replyd" style="width:75%"
       title="Укажите гиперссылку" />
-	  <!--div class="ajax-reply" id="f_urlt">erererer</div-->
+
       <button name="preview" onclick="return onPreview();"
       title="Preview the image in a new window">Предпросмотр</button>
     </td>
@@ -169,6 +169,11 @@ form { padding: 0px; margin: 0px; }
 <div class="fl">Толщина границы:</div>
 <input type="text" name="border" id="f_border" size="5"
 title="Leave empty for no border" />
+
+<div class="space"></div>
+<div class="fl">Ширина:</div>
+<input type="text" name="wi" id="f_wi" size="5"
+value='800' />
 
 <div class="space"></div>
 
@@ -235,6 +240,7 @@ $('.upload_files').on( 'click', function( event ){
 
 	// добавим переменную идентификатор запроса
 	data.append( 'my_file_upload', 1 );
+	data.append('wi',$('#f_wi').val());
 
 	// AJAX запрос
 	$.ajax({

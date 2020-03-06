@@ -14,7 +14,7 @@
 
 <table width=1 border=0> 
 
-<form action='post2.php' enctype='multipart/form-data' method=post> 
+<form action=post2.php enctype='multipart/form-data' method=post> 
 
 
 

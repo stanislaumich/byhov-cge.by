@@ -20,7 +20,7 @@ $mysqlusr='byhovcge_adm';
 $mysqlpas='CrazyDog';
 $usrmysqltable='byhovusr';
 ///////////////////////////////////////////////////////
-$news_on_page=10;
+$news_on_page=60;
 
 
 ?>

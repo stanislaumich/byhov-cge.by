@@ -25,7 +25,7 @@
 <p><span style="font-size: 14px;">Кабинет №5</span><br />
 <span style="font-size: 14px;">Телефон/факс: (8-02231) <span style="color: rgb(0, 100, 0);"><strong>4-90-54</strong></span></span></p>
 
-<p><span style="font-size: 14px;"><strong>Время работы:</strong> с 8<sup>00</sup> до 17<sup>00</sup>, обед с 13<sup>00</sup> до 14<sup>00</sup>, выходные: суббота, воскресенье.</span></p>
+<p><span style="font-size: 14px;"><strong>Время работы:</strong> %worktime%</span></p>
 
     </div>
 </div></div>

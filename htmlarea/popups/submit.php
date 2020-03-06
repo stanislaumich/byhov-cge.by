@@ -4,7 +4,8 @@ require "../../config.php";
 include('classSimpleImage.php');
     $uploaddir = $usruploaddir;//'../uploads'; // . - текущая папка где находится submit.php
     //echo $uploaddir;
-$nw=800;//$_POST['pw'];	
+$nw=$_POST['wi'];
+//file_put_contents('nw.txt',$nw);	
 if( isset( $_POST['my_file_upload'] ) ){  
     // ВАЖНО! тут должны быть все проверки безопасности передавемых файлов и вывести ошибки если нужно
 
@@ -21,10 +22,8 @@ if( isset( $_POST['my_file_upload'] ) ){
         $fn=rand(100000,999999).'_'.$file_name;
         //if( move_uploaded_file( $file['tmp_name'], "$uploaddir/$fn" ) ){
             $image = new SimpleImage();
-			$image->load($file['tmp_name']);
-			if ($image->getWidth()>$nw){
-			 $image->resizeToWidth($nw);
-			}
+			$image->load($file['tmp_name']);			
+			 $image->resizeToWidth($nw);			
 			//$fn='u_'.$fn;
 			$image->save("$uploaddir/$fn");
 			$done_files[] = $usruploaddirp.'/'.$fn;
